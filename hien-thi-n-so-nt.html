@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị số nguyên tố</title>
+</head>
+<h1 style="color:brown;">Hiển thị n số nguyên tố đầu tiên</h1>
+<body>
+<br> Số lượng số nguyên tố <input type="number" id="so" placeholder="Nhập 1 số"> </br>
+<br>
+<button style="width:130px; height:30px" onclick="checkNT()"> Hiện dãy</button>
+<br>
+<p id="day">Dãy số nguyên tố:</p>
+</body>
+<script>
+    let result="";
+    let count = 0;
+    let countSNT = 0;
+    function checkNT() {
+        let number = +document.getElementById("so").value;
+        for (let i = 2; i < 1000; i++) {
+            if (countSNT < number) {
+                for (let j = 1; j <= i; j++) {
+                    if (i % j === 0) {
+                        count += 1;
+                    }
+                }
+                if (count === 2) {
+                    result += i +"<br>";
+                    countSNT += 1;
+                }
+                count = 0;
+            } else {
+                break;
+            }
+        }
+        document.getElementById("day").innerHTML = "Dãy "+number+" số nguyên tố đầu tiên là:<br> " + result;
+    }
+    
+</script>
+</html>
